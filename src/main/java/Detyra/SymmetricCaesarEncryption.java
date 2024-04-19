@@ -2,23 +2,57 @@ package Detyra;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class SymmetricCaesarEncryption extends Application {
+    private int shift1 ;
+    private int shift2 ;
     public void start(Stage stage){
+        //Komponentet e enkriptimit
+        Label label = new Label("Encrypt");
+        label.setFont(Font.font(20));
+        Label label11 = new Label("Plain text");
         TextArea plainInput = new TextArea();
 
+        Label label12 = new Label("Shift value:");
+        TextArea shiftEncrypt = new TextArea();
 
+        Button butoniEnkripto = new Button("Encrypt");
+        Button butoniClear = new Button("Clear");
+        HBox row3 = new HBox(butoniEnkripto, butoniClear);
+        row3.setSpacing(170);
 
-        FlowPane flowPane = new FlowPane();
+        Label label13 = new Label("Cipher text:");
+        TextArea cipherOutput = new TextArea();
+        cipherOutput.setPrefRowCount(5);
+
+        VBox paneEncrypt = new VBox(label,label11, plainInput, label12, shiftEncrypt, row3, label13, cipherOutput);
+
+        FlowPane flowPane = new FlowPane(paneEncrypt);
+//        FlowPane flowPane = new FlowPane(paneEncrypt, paneDecrypt);
         StackPane pane = new StackPane(flowPane);
-        Scene scene = new Scene(pane, 500, 800);
-        Stage stage1 = new Stage();
-        stage1.setScene(scene);
-        stage1.show();
+        Scene scene = new Scene(pane, 800, 500);
+        stage.setTitle("Symmetric Caesar Encryption");
+        stage.setScene(scene);
+        stage.show();
+
+        //Inicializimi i eventit ne butonin per enkriptim
+        butoniEnkripto.setOnAction(a ->{
+            String inputEncryption = plainInput.getText();
+            if(isNumber(shiftEncrypt.getText())){
+                shift1 = Integer.parseInt(shiftEncrypt.getText());
+                String encryptedText = caesarEncrypt(inputEncryption, shift1);
+                cipherOutput.setText(encryptedText);
+            }
+        });
     }
 
     //Funksioni per enkriptim
@@ -43,5 +77,14 @@ public class SymmetricCaesarEncryption extends Application {
             plainTxt.append(s);
         }
         return plainTxt.toString();
+    }
+
+    private boolean isNumber(String shiftInput){
+        try{
+            int shift = Integer.parseInt(shiftInput);
+            return shift >= 1 && shift <= 26;
+        } catch (NumberFormatException e){
+            return false;
+        }
     }
 }
