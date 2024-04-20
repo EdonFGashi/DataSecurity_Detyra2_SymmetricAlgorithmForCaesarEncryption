@@ -1,6 +1,7 @@
 package Detyra;
 
 import javafx.application.Application;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,8 +23,16 @@ public class SymmetricCaesarEncryption extends Application {
         Label label11 = new Label("Plain text");
         TextArea plainInput = new TextArea();
 
+        plainInput.setPrefRowCount(5);
+        plainInput.setWrapText(true);
+        plainInput.setCursor(Cursor.TEXT);
+
         Label label12 = new Label("Shift value:");
         TextArea shiftEncrypt = new TextArea();
+
+        shiftEncrypt.setPrefRowCount(2);
+        shiftEncrypt.setWrapText(true);
+        shiftEncrypt.setCursor(Cursor.TEXT);
 
         Button butoniEnkripto = new Button("Encrypt");
         Button butoniClear = new Button("Clear");
@@ -33,6 +42,10 @@ public class SymmetricCaesarEncryption extends Application {
         Label label13 = new Label("Cipher text:");
         TextArea cipherOutput = new TextArea();
         cipherOutput.setPrefRowCount(5);
+
+        cipherOutput.setWrapText(true);
+        cipherOutput.setCursor(Cursor.TEXT);
+        cipherOutput.setEditable(false);
 
         VBox paneEncrypt = new VBox(label,label11, plainInput, label12, shiftEncrypt, row3, label13, cipherOutput);
 
