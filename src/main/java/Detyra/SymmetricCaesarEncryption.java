@@ -92,7 +92,13 @@ public class SymmetricCaesarEncryption extends Application {
         StringBuilder plainTxt = new StringBuilder();
         for (char s : cipherTxt.toCharArray()){
             if(Character.isLetter(s)){
-                s = (char) (s - ((shift + 26) % 26));
+                char start ;
+                if(Character.isLowerCase(s)){
+                    start = 'a';
+                } else {
+                    start = 'A';
+                }
+                s = (char) (start + (s - start - shift + 26) % 26);
             }
             plainTxt.append(s);
         }
