@@ -68,12 +68,19 @@ public class SymmetricCaesarEncryption extends Application {
         });
     }
 
-    //Funksioni per enkriptim
+    //    Funksioni per enkriptim
     private String caesarEncrypt(String plainTxt, int shift){
         StringBuilder cipherTxt = new StringBuilder();
         for (char s : plainTxt.toCharArray()){
             if(Character.isLetter(s)){
-                s = (char) (s + (shift % 26));
+                char start ;
+                if(Character.isLowerCase(s)){
+                    start = 'a';
+                } else {
+                    start = 'A';
+                }
+                s = (char) (start + (s - start +shift) % 26);
+
             }
             cipherTxt.append(s);
         }
