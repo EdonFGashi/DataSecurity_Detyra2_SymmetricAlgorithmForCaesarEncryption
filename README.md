@@ -1,9 +1,15 @@
 # DataSecurity_Detyra2_SymmetricAlgorithmForCaesarEncryption
 Universiteti i Prishtinës "Hasan Prishtina"
+
 Fakulteti i Inxhinierisë Elektrike dhe Kompjuterike / Departamenti i Inxhinierisë Softuerike dhe Kompjuterike
+
 Titulli i projektit: Implementimi i SymmetricAlgorithm për enkriptim dhe dekriptim të kodit të Cezarit. Bajtat që nuk janë shkronja A-Z ose a-z të mos ndryshohen.
+
 Emrat e studentëve të grupit: Edon Gashi, Dreni Nimanaj, Eden Dobra dhe Elion Mehaj
+
 Emri i profesorit: Prof. Dr. Blerim Rexha
+
+
 
 Përshkrimi i projektit: ideja e këtij projekti është që të implementohet një program
 i cili bën të mundur enkriptimin e fjalëve përmes algoritmit të kodt të Cezarit, si 
@@ -16,6 +22,8 @@ dekriptimit, përveç shkronjave të alfabetit anglez (nga a deri në z dhe nga 
 Programi përmban edhe një GUI që mundëson interaktivitet të lehtë. Programi është shkruar 
 në gjuhën programuese Java dhe GUI është bërë me JavaFX. Për tu përdorur ky program nuk 
 nevojtet softuer special, mjafton të keni editor që e kompajlon këtë gjuhë programuese.
+
+
 
 Rezultatet e projektit: ky program mund të shfrytëzohet për enkriptim dhe dekriptim të një 
 informaiconi me kodin e Cezarit
