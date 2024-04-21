@@ -75,7 +75,17 @@ public class SymmetricCaesarEncryption extends Application {
         HBox row23 = new HBox(butoniDekripto, butoniClear2);
         row23.setSpacing(170);
 
+        
         VBox paneEncrypt = new VBox(label,label11, plainInput, label12, shiftEncrypt, row3, label13, cipherOutput);
+
+        Label label23 = new Label("Plain text:");
+        TextArea plainOutput = new TextArea();
+        plainOutput.setPrefRowCount(5);
+        plainOutput.setWrapText(true);
+        plainOutput.setCursor(Cursor.TEXT);
+        plainOutput.setEditable(false);
+        
+//-------------------------------------------------------------------------------------------------------
 
         FlowPane flowPane = new FlowPane(paneEncrypt);
 //        FlowPane flowPane = new FlowPane(paneEncrypt, paneDecrypt);
@@ -92,9 +102,13 @@ public class SymmetricCaesarEncryption extends Application {
                 shift1 = Integer.parseInt(shiftEncrypt.getText());
                 String encryptedText = caesarEncrypt(inputEncryption, shift1);
                 cipherOutput.setText(encryptedText);
-            }
+            }else{
+                alert.showAndWait();
+           }      
         });
     }
+
+    //------------------------------------------------------------------------------------------------
 
     //    Funksioni per enkriptim
     private String caesarEncrypt(String plainTxt, int shift){
