@@ -20,8 +20,6 @@ public class SymmetricCaesarEncryption extends Application {
 
     private int shift1;
     private int shift2;
-    String shkronjat = "abcdefghijklmnopqrstuvwyz";
-    char[] shkronjatArray = shkronjat.toCharArray();
 
     @Override
     public void start(Stage stage) {
