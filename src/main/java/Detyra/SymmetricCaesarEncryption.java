@@ -49,6 +49,15 @@ public class SymmetricCaesarEncryption extends Application {
         cipherOutput.setCursor(Cursor.TEXT);
         cipherOutput.setEditable(false);
 
+         //Komponentet e dekriptimit
+         Label label2 = new Label("Decrypt");
+         label2.setFont(Font.font(20));
+         Label label21 = new Label("Cipher text");
+         TextArea cipherInput = new TextArea();
+         cipherInput.setPrefRowCount(5);
+         cipherInput.setWrapText(true);
+         cipherInput.setCursor(Cursor.TEXT);
+
         VBox paneEncrypt = new VBox(label,label11, plainInput, label12, shiftEncrypt, row3, label13, cipherOutput);
 
         FlowPane flowPane = new FlowPane(paneEncrypt);
