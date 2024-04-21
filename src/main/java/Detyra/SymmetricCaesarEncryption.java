@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 public class SymmetricCaesarEncryption extends Application {
     private int shift1 ;
     private int shift2 ;
+    String shkronjat = "abcdefghijklmnopqrstuvwyz";
+    char[] shkronjatArray = shkronjat.toCharArray();
     public void start(Stage stage){
         //Komponentet e enkriptimit
         Label label = new Label("Encrypt");
@@ -113,4 +115,6 @@ public class SymmetricCaesarEncryption extends Application {
             return false;
         }
     }
+
+
 }
