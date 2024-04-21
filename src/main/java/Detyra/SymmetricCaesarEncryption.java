@@ -14,10 +14,16 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class SymmetricCaesarEncryption extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     private int shift1 ;
     private int shift2 ;
     String shkronjat = "abcdefghijklmnopqrstuvwyz";
     char[] shkronjatArray = shkronjat.toCharArray();
+    @Override
     public void start(Stage stage){
         //Komponentet e enkriptimit
         Label label = new Label("Encrypt");
