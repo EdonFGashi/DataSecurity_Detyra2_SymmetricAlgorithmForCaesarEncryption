@@ -84,8 +84,25 @@ public class SymmetricCaesarEncryption extends Application {
         plainOutput.setWrapText(true);
         plainOutput.setCursor(Cursor.TEXT);
         plainOutput.setEditable(false);
-        
+
 //-------------------------------------------------------------------------------------------------------
+
+        Label label23 = new Label("Plain text:");
+        TextArea plainOutput = new TextArea();
+        plainOutput.setPrefRowCount(5);
+        plainOutput.setWrapText(true);
+        plainOutput.setCursor(Cursor.TEXT);
+        plainOutput.setEditable(false);
+
+        //caktimi i nje borderi te pane-s
+        BorderStroke borderStroke = new BorderStroke(
+                javafx.scene.paint.Color.BLACK, // Border color
+                BorderStrokeStyle.SOLID, // Border style
+                CornerRadii.EMPTY, // Border radii (none)
+                BorderWidths.DEFAULT // Border width
+        );
+        Border border = new Border(borderStroke);
+        Insets padding = new Insets(10); // 10 pixels padding on all sides
 
         FlowPane flowPane = new FlowPane(paneEncrypt);
 //        FlowPane flowPane = new FlowPane(paneEncrypt, paneDecrypt);
@@ -94,6 +111,13 @@ public class SymmetricCaesarEncryption extends Application {
         stage.setTitle("Symmetric Caesar Encryption");
         stage.setScene(scene);
         stage.show();
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        // inicializimi i error dialog box
+        alert.setTitle("Error Dialog");
+        alert.setHeaderText("Invalid data");
+        alert.setContentText("Type valid data.");
 
         //Inicializimi i eventit ne butonin per enkriptim
         butoniEnkripto.setOnAction(a ->{
@@ -106,6 +130,31 @@ public class SymmetricCaesarEncryption extends Application {
                 alert.showAndWait();
            }      
         });
+    }
+
+    //Inicializimi i eventit ne butonin per fshierje
+    butoniClear.setOnAction(b -> {
+        plainInput.setText("");
+        cipherOutput.setText("");
+    });
+
+    //Inicializimi i eventit ne butonin per dekrptim
+    butoniDekripto.setOnAction(c -> {
+        String inputDecryption = cipherInput.getText();
+        if(isNumber(shiftDecrypt.getText())){
+            shift2 = Integer.parseInt(shiftDecrypt.getText());
+            String decryptedText = caesarDecrypt(inputDecryption, shift2);
+            plainOutput.setText(decryptedText);
+        } else {
+            alert.showAndWait();
+        }
+    });
+
+    //Inicializimi i eventit ne butonin per fshierje
+    butoniClear2.setOnAction(d -> {
+        cipherInput.setText("");
+        plainOutput.setText("");
+    });
     }
 
     //------------------------------------------------------------------------------------------------
