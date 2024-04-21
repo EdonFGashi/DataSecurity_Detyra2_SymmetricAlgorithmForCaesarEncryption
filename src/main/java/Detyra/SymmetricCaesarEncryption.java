@@ -64,6 +64,11 @@ public class SymmetricCaesarEncryption extends Application {
         shiftDecrypt.setWrapText(true);
         shiftDecrypt.setCursor(Cursor.TEXT);
 
+        Button butoniDekripto = new Button("Decrypt");
+        Button butoniClear2 = new Button("Clear");
+        HBox row23 = new HBox(butoniDekripto, butoniClear2);
+        row23.setSpacing(170);
+
         VBox paneEncrypt = new VBox(label,label11, plainInput, label12, shiftEncrypt, row3, label13, cipherOutput);
 
         FlowPane flowPane = new FlowPane(paneEncrypt);
