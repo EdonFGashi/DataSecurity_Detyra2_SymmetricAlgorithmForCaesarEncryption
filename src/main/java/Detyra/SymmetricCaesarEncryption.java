@@ -58,6 +58,12 @@ public class SymmetricCaesarEncryption extends Application {
          cipherInput.setWrapText(true);
          cipherInput.setCursor(Cursor.TEXT);
 
+         Label label22 = new Label("Shift value:");
+        TextArea shiftDecrypt = new TextArea();
+        shiftDecrypt.setPrefRowCount(2);
+        shiftDecrypt.setWrapText(true);
+        shiftDecrypt.setCursor(Cursor.TEXT);
+
         VBox paneEncrypt = new VBox(label,label11, plainInput, label12, shiftEncrypt, row3, label13, cipherOutput);
 
         FlowPane flowPane = new FlowPane(paneEncrypt);
